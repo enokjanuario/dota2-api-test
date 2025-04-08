@@ -28,11 +28,33 @@ public class ApiConfig {
     }
 
     private void loadProperties() {
-
+        try (InputStream inputStream = getClass().getResourceAsStream(CONFIG_FILE)) {
+            if (inputStream != null) {
+                properties.load(inputStream);
+                logger.info("API configuration loaded successfully");
+            } else {
+                logger.error("Unable to find config file: {}", CONFIG_FILE);
+                throw new RuntimeException("Configuration file not found: " + CONFIG_FILE);
+            }
+        } catch (IOException e) {
+            logger.error("Error loading API configuration: {}", e.getMessage(), e);
+            throw new RuntimeException("Error loading API configuration", e);
+        }
     }
 
     public String getBaseUrl() {
         return properties.getProperty("api.base.url");
     }
 
+    public int getDefaultTimeout() {
+        return Integer.parseInt(properties.getProperty("api.timeout.seconds", "30"));
+    }
+
+    public String getProperty(String key) {
+        return properties.getProperty(key);
+    }
+
+    public String getProperty(String key, String defaultValue) {
+        return properties.getProperty(key, defaultValue);
+    }
 }
