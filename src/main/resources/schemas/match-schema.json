@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Dota 2 Match Schema",
+  "description": "Schema for validating Dota 2 match data",
+  "type": "object",
+  "required": ["match_id", "start_time", "duration", "radiant_win", "players"],
+  "properties": {
+    "match_id": {
+      "type": "integer",
+      "description": "Unique identifier for the match"
+    },
+    "start_time": {
+      "type": "integer",
+      "description": "Unix timestamp of when the match started"
+    },
+    "duration": {
+      "type": "integer",
+      "description": "Duration of the match in seconds"
+    },
+    "radiant_win": {
+      "type": "boolean",
+      "description": "Whether Radiant won the match"
+    },
+    "game_mode": {
+      "type": "integer",
+      "description": "Game mode"
+    },
+    "lobby_type": {
+      "type": "integer",
+      "description": "Type of lobby"
+    },
+    "players": {
+      "type": "array",
+      "description": "Players in the match",
+      "items": {
+        "type": "object",
+        "required": ["player_slot", "hero_id"],
+        "properties": {
+          "account_id": {
+            "type": ["integer", "null"],
+            "description": "Player's account ID"
+          },
+          "player_slot": {
+            "type": "integer",
+            "description": "Player's slot in the match"
+          },
+          "hero_id": {
+            "type": "integer",
+            "description": "Hero ID used by the player"
+          },
+          "kills": {
+            "type": ["integer", "null"],
+            "description": "Number of kills"
+          },
+          "deaths": {
+            "type": ["integer", "null"],
+            "description": "Number of deaths"
+          },
+          "assists": {
+            "type": ["integer", "null"],
+            "description": "Number of assists"
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

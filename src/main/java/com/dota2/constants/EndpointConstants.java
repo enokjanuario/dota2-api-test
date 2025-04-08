@@ -8,8 +8,18 @@ public class EndpointConstants {
     public static final String HEROES_ENDPOINT = "/heroes";
     public static final String HERO_BY_ID_ENDPOINT = "/heroes/{id}";
 
-    public static final String MATCHES_ENDPOINT = "/matches";
+    public static final String MATCHES_ENDPOINT = "/publicMatches";
     public static final String MATCH_BY_ID_ENDPOINT = "/matches/{id}";
+
+    public static final String MATCH_ID_FIELD = "match_id";
+    public static final String START_TIME_FIELD = "start_time";
+    public static final String DURATION_FIELD = "duration";
+    public static final String RADIANT_WIN_FIELD = "radiant_win";
+    public static final String PLAYERS_FIELD = "players";
+
+    public static final String RADIANT_TEAM_FIELD = "radiant_team";
+    public static final String DIRE_TEAM_FIELD = "dire_team";
+
 
     public static final String PLAYERS_ENDPOINT = "/players";
     public static final String PLAYER_BY_ID_ENDPOINT = "/players/{id}";
