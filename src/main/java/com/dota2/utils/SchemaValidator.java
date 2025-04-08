@@ -11,11 +11,10 @@ import java.io.InputStream;
  * Utility class for JSON Schema validation.
  */
 public class SchemaValidator {
-    private static final Logger logger = LogManager.getLogger(JsonSchemaValidator.class);
+    private static final Logger logger = LogManager.getLogger(SchemaValidator.class);
     private static final String SCHEMA_BASE_PATH = "/schemas/";
 
     private SchemaValidator() {
-
     }
 
     /**
@@ -28,7 +27,7 @@ public class SchemaValidator {
         String schemaPath = SCHEMA_BASE_PATH + schemaFileName;
 
         try {
-            InputStream schemaStream = JsonSchemaValidator.class.getResourceAsStream(schemaPath);
+            InputStream schemaStream = SchemaValidator.class.getResourceAsStream(schemaPath);
             if (schemaStream == null) {
                 throw new IllegalArgumentException("Schema file not found: " + schemaPath);
             }

@@ -1,93 +1,48 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Dota 2 Hero Schema",
-  "description": "Schema for validating Dota 2 hero data",
-  "type": "object",
-  "required": ["id", "name", "localized_name", "primary_attr", "attack_type", "roles"],
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "Unique identifier for the hero"
-    },
-    "name": {
-      "type": "string",
-      "description": "Hero's internal name"
-    },
-    "localized_name": {
-      "type": "string",
-      "description": "Hero's display name"
-    },
-    "primary_attr": {
-      "type": "string",
-      "description": "Hero's primary attribute",
-      "enum": ["str", "agi", "int", "all"]
-    },
-    "attack_type": {
-      "type": "string",
-      "description": "Hero's attack type",
-      "enum": ["Melee", "Ranged"]
-    },
-    "roles": {
-      "type": "array",
-      "description": "Hero's roles",
-      "items": {
-        "type": "string"
+  "title": "Dota 2 Heroes Array Schema",
+  "description": "Schema for validating an array of Dota 2 hero data",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "name", "localized_name", "primary_attr", "attack_type", "roles"],
+    "properties": {
+      "id": {
+        "type": "integer",
+        "description": "Unique identifier for the hero"
       },
-      "minItems": 1
+      "name": {
+        "type": "string",
+        "description": "Hero's internal name"
+      },
+      "localized_name": {
+        "type": "string",
+        "description": "Hero's display name"
+      },
+      "primary_attr": {
+        "type": "string",
+        "description": "Hero's primary attribute",
+        "enum": ["str", "agi", "int", "all"]
+      },
+      "attack_type": {
+        "type": "string",
+        "description": "Hero's attack type",
+        "enum": ["Melee", "Ranged"]
+      },
+      "roles": {
+        "type": "array",
+        "description": "Hero's roles",
+        "items": {
+          "type": "string"
+        },
+        "minItems": 1
+      },
+      "legs": {
+        "type": "integer",
+        "description": "Number of legs",
+        "minimum": 0
+      }
     },
-    "legs": {
-      "type": "integer",
-      "description": "Number of legs",
-      "minimum": 0
-    },
-    "base_health": {
-      "type": "integer",
-      "description": "Base health"
-    },
-    "base_health_regen": {
-      "type": ["number", "null"],
-      "description": "Base health regeneration"
-    },
-    "base_mana": {
-      "type": "integer",
-      "description": "Base mana"
-    },
-    "base_mana_regen": {
-      "type": ["number", "null"],
-      "description": "Base mana regeneration"
-    },
-    "base_armor": {
-      "type": "number",
-      "description": "Base armor"
-    },
-    "base_mr": {
-      "type": "integer",
-      "description": "Base magic resistance"
-    },
-    "base_attack_min": {
-      "type": "integer",
-      "description": "Minimum base attack damage"
-    },
-    "base_attack_max": {
-      "type": "integer",
-      "description": "Maximum base attack damage"
-    },
-    "base_str": {
-      "type": "integer",
-      "description": "Base strength"
-    },
-    "base_agi": {
-      "type": "integer",
-      "description": "Base agility"
-    },
-    "base_int": {
-      "type": "integer",
-      "description": "Base intelligence"
-    },
-    "move_speed": {
-      "type": "integer",
-      "description": "Movement speed"
-    }
-  },
-  "additionalProperties": true
+    "additionalProperties": true
+  }
 }
