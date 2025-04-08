@@ -4,7 +4,7 @@ import com.dota2.api.endpoints.HeroesEndpoint;
 import com.dota2.config.TestConfig;
 import com.dota2.constants.EndpointConstants;
 import com.dota2.model.Hero;
-import com.dota2.utils.JsonSchemaValidator;
+import com.dota2.utils.SchemaValidator;
 import io.qameta.allure.*;
 import io.restassured.response.Response;
 import org.apache.logging.log4j.LogManager;
@@ -36,7 +36,6 @@ public class GetHeroesTest {
     @Story("Get all heroes")
     @Description("This test verifies that the GET /heroes endpoint returns a 200 OK status code")
     public void testGetAllHeroesReturns200() {
-
         Response response = heroesEndpoint.getAllHeroes();
 
         assertEquals(response.getStatusCode(), EndpointConstants.STATUS_OK,
@@ -52,7 +51,6 @@ public class GetHeroesTest {
     @Story("Get all heroes")
     @Description("This test verifies that each hero in the response contains required fields")
     public void testHeroesContainRequiredFields() {
-
         Response response = heroesEndpoint.getAllHeroes();
 
         assertEquals(response.getStatusCode(), EndpointConstants.STATUS_OK);
@@ -67,7 +65,7 @@ public class GetHeroesTest {
     }
 
     @Test(description = "Verify that the heroes schema is valid")
-    @Severity(SeverityLevel.HIGH)
+    @Severity(SeverityLevel.CRITICAL)
     @Story("Get all heroes")
     @Description("This test verifies that the heroes response matches the expected JSON schema")
     public void testHeroesSchemaIsValid() {
@@ -75,7 +73,7 @@ public class GetHeroesTest {
 
         assertEquals(response.getStatusCode(), EndpointConstants.STATUS_OK);
 
-        JsonSchemaValidator.validateSchema(response, "hero-schema.json");
+        SchemaValidator.validateSchema(response, "hero-schema.json");
 
         logger.info("Successfully verified heroes schema is valid");
     }
@@ -85,7 +83,6 @@ public class GetHeroesTest {
     @Story("Get heroes with pagination")
     @Description("This test verifies that the heroes endpoint supports pagination with limit and offset parameters")
     public void testHeroesPagination() {
-
         int limit = 5;
         int offset = 0;
 
@@ -121,3 +118,4 @@ public class GetHeroesTest {
 
         logger.info("Successfully verified heroes pagination is working");
     }
+}

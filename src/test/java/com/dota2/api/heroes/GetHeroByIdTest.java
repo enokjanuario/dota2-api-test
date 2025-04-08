@@ -4,7 +4,7 @@ import com.dota2.api.endpoints.HeroesEndpoint;
 import com.dota2.config.TestConfig;
 import com.dota2.constants.EndpointConstants;
 import com.dota2.model.Hero;
-import com.dota2.utils.JsonSchemaValidator;
+import com.dota2.utils.SchemaValidator;
 import io.qameta.allure.*;
 import io.restassured.response.Response;
 import org.apache.logging.log4j.LogManager;
@@ -64,7 +64,7 @@ public class GetHeroByIdTest {
     }
 
     @Test(description = "Verify that getting a hero by valid ID returns the correct hero data")
-    @Severity(SeverityLevel.HIGH)
+    @Severity(SeverityLevel.CRITICAL)
     @Story("Get hero by ID")
     @Description("This test verifies that getting a hero by ID returns the correct hero data")
     public void testGetHeroByIdReturnsCorrectData() {
@@ -100,7 +100,7 @@ public class GetHeroByIdTest {
     }
 
     @Test(description = "Verify that hero by ID schema is valid")
-    @Severity(SeverityLevel.HIGH)
+    @Severity(SeverityLevel.CRITICAL)
     @Story("Get hero by ID")
     @Description("This test verifies that the hero by ID response matches the expected JSON schema")
     public void testHeroByIdSchemaIsValid() {
@@ -108,7 +108,7 @@ public class GetHeroByIdTest {
 
         assertEquals(response.getStatusCode(), EndpointConstants.STATUS_OK);
 
-        JsonSchemaValidator.validateSchema(response, "hero-schema.json");
+        SchemaValidator.validateSchema(response, "hero-schema.json");
 
         logger.info("Successfully verified hero by ID schema is valid");
     }

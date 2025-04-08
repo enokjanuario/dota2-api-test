@@ -10,11 +10,11 @@ import java.io.InputStream;
 /**
  * Utility class for JSON Schema validation.
  */
-public class JsonSchemaValidator {
+public class SchemaValidator {
     private static final Logger logger = LogManager.getLogger(JsonSchemaValidator.class);
     private static final String SCHEMA_BASE_PATH = "/schemas/";
 
-    private JsonSchemaValidator() {
+    private SchemaValidator() {
 
     }
 
