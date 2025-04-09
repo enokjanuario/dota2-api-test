@@ -17,9 +17,9 @@ export const options = {
   thresholds: {
     http_req_duration: ['p(95)<1500'],
     error_rate: ['rate<0.25'],
-    teamsRequestDuration: ['p(95)<1200'],
-    teamDetailsRequestDuration: ['p(95)<1200'],
-    playersRequestDuration: ['p(95)<1200'],
+    teams_request_duration: ['p(95)<1200'],
+    team_details_request_duration: ['p(95)<1200'],
+    players_request_duration: ['p(95)<1200'],
   }
 };
 

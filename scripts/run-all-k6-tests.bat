@@ -9,7 +9,7 @@ if not exist "target\k6-reports" mkdir "target\k6-reports"
 
 echo.
 echo Executando teste de Heroes...
-k6 run scripts/heroes_performance.js --out json=target/k6-reports/heroes_performance.json
+k6 run src/test/k6/heroes_performance.js --out json=target/k6-reports/heroes_performance.json
 echo.
 echo Relatório do teste de Heroes gerado em: heroes_performance_report.html
 echo.
@@ -19,7 +19,7 @@ timeout /t 10 /nobreak >nul
 
 echo.
 echo Executando teste de Matches...
-k6 run scripts/matches_performance.js --out json=target/k6-reports/matches_performance.json
+k6 run src/test/k6/matches_performance.js --out json=target/k6-reports/matches_performance.json
 echo.
 echo Relatório do teste de Matches gerado em: matches_performance_report.html
 echo.
@@ -29,7 +29,7 @@ timeout /t 10 /nobreak >nul
 
 echo.
 echo Executando teste de Teams e Players...
-k6 run scripts/teams_players_performance.js --out json=target/k6-reports/teams_players_performance.json
+k6 run src/test/k6/teams_players_performance.js --out json=target/k6-reports/teams_players_performance.json
 echo.
 echo Relatório do teste de Teams e Players gerado em: teams_players_performance_report.html
 echo.
