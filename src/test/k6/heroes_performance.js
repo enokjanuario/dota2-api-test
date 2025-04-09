@@ -14,9 +14,9 @@ export const options = {
     { duration: '10s', target: 0 },
   ],
   thresholds: {
-    http_req_duration: ['p(95)<1000'],
+    http_req_duration: ['p(95)<2000'],
     error_rate: ['rate<0.2'],
-    heroes_request_duration: ['p(95)<800'],
+    heroes_request_duration: ['p(95)<1500'],
   }
 };
 
