@@ -19,7 +19,7 @@
         <lombok.version>1.18.28</lombok.version>
         <json-schema-validator.version>5.3.1</json-schema-validator.version>
         <aspectj.version>1.9.20</aspectj.version>
-        <surefire.version>3.1.2</surefire.version>
+        <surefire.version>3.5.3</surefire.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
