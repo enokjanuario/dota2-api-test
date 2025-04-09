@@ -28,14 +28,14 @@ jobs:
 
       - name: Upload TestNG Results
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: testng-results
           path: target/surefire-reports
 
       - name: Upload Allure Results
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: allure-results
           path: target/allure-results
@@ -75,7 +75,7 @@ jobs:
 
       - name: Upload K6 Results
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: k6-reports
           path: target/k6-reports
