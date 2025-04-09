@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Dota 2 Team Schema",
+  "description": "Schema for validating Dota 2 team data",
+  "type": "object",
+  "required": ["team_id", "name"],
+  "properties": {
+    "team_id": {
+      "type": "integer",
+      "description": "Team's unique identifier"
+    },
+    "name": {
+      "type": "string",
+      "description": "Team's name"
+    },
+    "tag": {
+      "type": ["string", "null"],
+      "description": "Team's tag"
+    },
+    "logo_url": {
+      "type": ["string", "null"],
+      "description": "URL to team's logo"
+    },
+    "last_match_time": {
+      "type": ["integer", "null"],
+      "description": "Unix timestamp of last match played"
+    },
+    "rating": {
+      "type": ["number", "null"],
+      "description": "Team's rating"
+    },
+    "wins": {
+      "type": ["integer", "null"],
+      "description": "Number of wins"
+    },
+    "losses": {
+      "type": ["integer", "null"],
+      "description": "Number of losses"
+    }
+  },
+  "additionalProperties": true
+}
